@@ -9,5 +9,7 @@
             "email": "micha@haus23.net"
         }
     ],
-    "require": {}
+    "require": {
+        "symfony/flex": "^1.1"
+    }
 }
