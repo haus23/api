@@ -1,0 +1,13 @@
+{
+    "name": "haus23/api",
+    "description": "Web API for https://haus23.net",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Micha Alt",
+            "email": "micha@haus23.net"
+        }
+    ],
+    "require": {}
+}
