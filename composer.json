@@ -23,6 +23,9 @@
         "doctrine/annotations": "^1.6",
         "symfony/console": "^4.2"
     },
+    "require-dev": {
+        "symfony/debug-pack": "^1.0"
+    },
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd"
