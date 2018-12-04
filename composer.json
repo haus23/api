@@ -1,6 +1,7 @@
 {
     "name": "haus23/api",
     "description": "Web API for https://haus23.net",
+    "version": "0.1.0",
     "type": "project",
     "license": "MIT",
     "authors": [
