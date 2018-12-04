@@ -9,6 +9,11 @@
             "email": "micha@haus23.net"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
     "require": {
         "symfony/flex": "^1.1",
         "symfony/framework-bundle": "^4.2"
