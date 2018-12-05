@@ -8,7 +8,7 @@ use App\Entity\Championship;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
-class QueryAllPublishedChampionshipsHandler implements MessageHandlerInterface
+class GetAllPublishedChampionshipsHandler implements MessageHandlerInterface
 {
     /**
      * @var EntityManagerInterface
@@ -16,20 +16,17 @@ class QueryAllPublishedChampionshipsHandler implements MessageHandlerInterface
     private $em;
 
     /**
-     * QueryAllPublishedChampionshipsHandler constructor.
+     * GetAllPublishedChampionshipsHandler constructor.
      * @param EntityManagerInterface $em
      */
     public function __construct(EntityManagerInterface $em)
     {
-
         $this->em = $em;
     }
 
-
     public function __invoke(GetAllPublishedChampionships $query)
     {
-        $query = $this->em->createQuery('SELECT c FROM App\Entity\Championship c
-            ORDER BY c.nr
+        $query = $this->em->createQuery('SELECT c FROM App\Entity\Championship c ORDER BY c.nr
         ');
 
         $rows = $query->getResult();
