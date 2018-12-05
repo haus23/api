@@ -2,6 +2,6 @@
 
 namespace App\Domain\Message\Ranking;
 
-class QueryAllPublishedChampionships
+class GetAllPublishedChampionships
 {
 }

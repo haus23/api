@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ChampionshipRepository")
+ * @ORM\Table("turnier")
  */
 class Championship
 {
@@ -17,12 +18,12 @@ class Championship
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", name="order")
      */
     private $nr;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, name="title")
      */
     private $name;
 
@@ -67,7 +68,7 @@ class Championship
 
     public function getSlug(): ?string
     {
-        return $this->slug;
+        return $this->slug ?? $this->slugifyName();
     }
 
     public function setSlug(?string $slug): self
@@ -79,7 +80,7 @@ class Championship
 
     public function getCompleted(): ?bool
     {
-        return $this->completed;
+        return $this->completed ?? false;
     }
 
     public function setCompleted(?bool $completed): self
@@ -87,5 +88,19 @@ class Championship
         $this->completed = $completed;
 
         return $this;
+    }
+
+    /**
+     * @param string $name
+     * @return string
+     */
+    private function slugifyName()
+    {
+        $nameParts = ['/^H.+ /' => 'hr', '/^R.+ /' => 'rr', '/^E. /' => 'em', '/^W. /' => 'wm'];
+        $patterns = array_keys($nameParts);
+        $replacements = array_values($nameParts);
+
+        $slug = preg_replace($patterns, $replacements, $this->name);
+        return preg_replace('/^(\w\w).*(\d\d)\/(\d\d)?$/', '$1$2$3', $slug);
     }
 }
