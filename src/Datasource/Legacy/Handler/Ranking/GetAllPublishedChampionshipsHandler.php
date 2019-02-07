@@ -26,8 +26,7 @@ class GetAllPublishedChampionshipsHandler implements MessageHandlerInterface
 
     public function __invoke(GetAllPublishedChampionships $query)
     {
-        $query = $this->em->createQuery('SELECT c FROM App\Entity\Championship c ORDER BY c.nr
-        ');
+        $query = $this->em->createQuery('SELECT c FROM App\Entity\Championship c ORDER BY c.nr DESC');
 
         $rows = $query->getResult();
         $championships = array_map(function(Championship $c) {
