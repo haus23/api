@@ -54,7 +54,7 @@ class Match
     public $result;
 
     /**
-     * @var int
+     * @var int|null
      */
     public $points;
 
@@ -69,9 +69,9 @@ class Match
      * @param bool $topMatch
      * @param bool $canceled
      * @param string $result
-     * @param int $points
+     * @param int|null $points
      */
-    public function __construct(int $id, int $roundId, int $nr, string $league, string $matchDay, string $fixture, bool $topMatch, bool $canceled, string $result, int $points)
+    public function __construct(int $id, int $roundId, int $nr, string $league, string $matchDay, string $fixture, bool $topMatch, bool $canceled, string $result, ?int $points)
     {
         $this->id = $id;
         $this->roundId = $roundId;
