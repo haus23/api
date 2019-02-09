@@ -3,10 +3,10 @@
 namespace App\Domain\Message\Ranking;
 
 /**
- * Class GetPlayersByChampionship
+ * Class GetRoundsByChampionship
  * @package App\Domain\Message\Ranking
  */
-class GetPlayersByChampionship
+class GetRoundsByChampionship
 {
     /**
      * @var int
