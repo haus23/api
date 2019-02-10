@@ -44,7 +44,30 @@ class Tip
     public $extraPoints;
 
     /**
-     * @var int
+     * @var int|null
      */
     public $points;
+
+    /**
+     * Tip constructor.
+     * @param int $id
+     * @param int $matchId
+     * @param int $playerId
+     * @param string $result
+     * @param bool $joker
+     * @param int $tipPoints
+     * @param int $extraPoints
+     * @param int|null $points
+     */
+    public function __construct(int $id, int $matchId, int $playerId, string $result, bool $joker, int $tipPoints, int $extraPoints, ?int $points)
+    {
+        $this->id = $id;
+        $this->matchId = $matchId;
+        $this->playerId = $playerId;
+        $this->result = $result;
+        $this->joker = $joker;
+        $this->tipPoints = $tipPoints;
+        $this->extraPoints = $extraPoints;
+        $this->points = $points;
+    }
 }
