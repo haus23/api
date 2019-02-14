@@ -4,7 +4,7 @@ namespace App\Datasource\Legacy\Handler\Ranking;
 
 use App\Domain\Message\Ranking\GetAllPublishedChampionships;
 use App\Domain\Model\Ranking\Championship;
-use App\Entity\Championship as ChampionshipEntity;
+use App\Datasource\Legacy\Entity\Championship as ChampionshipEntity;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
@@ -26,7 +26,7 @@ class GetAllPublishedChampionshipsHandler implements MessageHandlerInterface
 
     public function __invoke(GetAllPublishedChampionships $query)
     {
-        $query = $this->em->createQuery('SELECT c FROM App\Entity\Championship c ORDER BY c.nr DESC');
+        $query = $this->em->createQuery('SELECT c FROM Legacy:Championship c ORDER BY c.nr DESC');
 
         $rows = $query->getResult();
         $championships = array_map(function(ChampionshipEntity $c) {
