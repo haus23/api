@@ -27,7 +27,10 @@ class CommonRankingControllerTest extends WebTestCase
 
         return [
             ['/v1/ranking/championships'],
-            ['/v1/ranking/players/1']
+            ['/v1/ranking/players/1'],
+            ['/v1/ranking/rounds/1'],
+            ['/v1/ranking/matches/1'],
+            ['/v1/ranking/tips/1'],
         ];
     }
 }

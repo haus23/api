@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity;
+namespace App\Datasource\Legacy\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -18,7 +18,7 @@ class Round
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Championship")
+     * @ORM\ManyToOne(targetEntity="App\Datasource\Legacy\Entity\Championship")
      * @ORM\JoinColumn(nullable=false, name="turnier_id")
      */
     private $championship;

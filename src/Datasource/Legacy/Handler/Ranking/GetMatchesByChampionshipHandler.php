@@ -4,7 +4,7 @@ namespace App\Datasource\Legacy\Handler\Ranking;
 
 use App\Domain\Message\Ranking\GetMatchesByChampionship;
 use App\Domain\Model\Ranking\Match;
-use App\Entity\Match as MatchEntity;
+use App\Datasource\Legacy\Entity\Match as MatchEntity;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
@@ -30,7 +30,7 @@ class GetMatchesByChampionshipHandler implements MessageHandlerInterface
 
     public function __invoke(GetMatchesByChampionship $msg)
     {
-        $query = $this->em->createQuery('SELECT m FROM App\Entity\Match m
+        $query = $this->em->createQuery('SELECT m FROM Legacy:Match m
             JOIN m.championship c WHERE c.id = ?1
             ORDER BY m.nr');
 

@@ -4,7 +4,7 @@ namespace App\Datasource\Legacy\Handler\Ranking;
 
 use App\Domain\Message\Ranking\GetTipsByChampionship;
 use App\Domain\Model\Ranking\Tip;
-use App\Entity\Tip as TipEntity;
+use App\Datasource\Legacy\Entity\Tip as TipEntity;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
@@ -30,7 +30,7 @@ class GetTipsByChampionshipHandler implements MessageHandlerInterface
 
     public function __invoke(GetTipsByChampionship $msg)
     {
-        $query = $this->em->createQuery('SELECT t FROM App\Entity\Tip t
+        $query = $this->em->createQuery('SELECT t FROM Legacy:Tip t
             JOIN t.championship c WHERE c.id = ?1');
 
         $query->setParameter(1, $msg->championshipId);

@@ -4,7 +4,7 @@ namespace App\Datasource\Legacy\Handler\Ranking;
 
 use App\Domain\Message\Ranking\GetRoundsByChampionship;
 use App\Domain\Model\Ranking\Round;
-use App\Entity\Round as RoundEntity;
+use App\Datasource\Legacy\Entity\Round as RoundEntity;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
@@ -30,7 +30,7 @@ class GetRoundsByChampionshipHandler implements MessageHandlerInterface
 
     public function __invoke(GetRoundsByChampionship $msg)
     {
-        $query = $this->em->createQuery('SELECT r FROM App\Entity\Round r
+        $query = $this->em->createQuery('SELECT r FROM Legacy:Round r
             JOIN r.championship c WHERE c.id = ?1
             ORDER BY r.nr');
 
