@@ -3,10 +3,10 @@
 namespace App\Domain\Model\Ranking;
 
 /**
- * Class PlayerInfo
+ * Class Player
  * @package App\Domain\Model\Ranking
  */
-class PlayerInfo implements \JsonSerializable
+class Player implements \JsonSerializable
 {
     /**
      * @var int
@@ -44,7 +44,7 @@ class PlayerInfo implements \JsonSerializable
     protected $total_points;
 
     /**
-     * PlayerInfo constructor.
+     * Player constructor.
      * @param int $id
      * @param string $name
      * @param $slug
