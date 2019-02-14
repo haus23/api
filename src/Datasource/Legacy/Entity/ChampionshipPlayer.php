@@ -54,24 +54,24 @@ class ChampionshipPlayer
         return $this->id;
     }
 
-    public function getChampionship(): ?Championship
+    public function getChampionship(): Championship
     {
         return $this->championship;
     }
 
-    public function setChampionship(?Championship $championship): self
+    public function setChampionship(Championship $championship): self
     {
         $this->championship = $championship;
 
         return $this;
     }
 
-    public function getPlayer(): ?Player
+    public function getPlayer(): Player
     {
         return $this->player;
     }
 
-    public function setPlayer(?Player $player): self
+    public function setPlayer(Player $player): self
     {
         $this->player = $player;
 

@@ -8,6 +8,7 @@ namespace App\Domain\Model\Ranking;
  */
 class Player implements \JsonSerializable
 {
+
     /**
      * @var int
      */
@@ -47,13 +48,13 @@ class Player implements \JsonSerializable
      * Player constructor.
      * @param int $id
      * @param string $name
-     * @param $slug
+     * @param string $slug
      * @param $rank
      * @param $points
      * @param $extra_points
      * @param $total_points
      */
-    public function __construct(int $id, string $name, $slug, $rank, $points, $extra_points, $total_points)
+    public function __construct(int $id, string $name, string $slug, ?int $rank, ?int $points, ?float $extra_points, ?float $total_points)
     {
         $this->id = $id;
         $this->name = $name;
@@ -63,6 +64,7 @@ class Player implements \JsonSerializable
         $this->extra_points = $extra_points;
         $this->total_points = $total_points;
     }
+
 
     /**
      * @return int
@@ -113,65 +115,65 @@ class Player implements \JsonSerializable
     }
 
     /**
-     * @return mixed
+     * @return int|null
      */
-    public function getRank()
+    public function getRank(): ?int
     {
         return $this->rank;
     }
 
     /**
-     * @param mixed $rank
+     * @param int|null $rank
      */
-    public function setRank($rank): void
+    public function setRank(?int $rank): void
     {
         $this->rank = $rank;
     }
 
     /**
-     * @return mixed
+     * @return int|null
      */
-    public function getPoints()
+    public function getPoints(): ?int
     {
         return $this->points;
     }
 
     /**
-     * @param mixed $points
+     * @param int|null $points
      */
-    public function setPoints($points): void
+    public function setPoints(?int $points): void
     {
         $this->points = $points;
     }
 
     /**
-     * @return mixed
+     * @return float|null
      */
-    public function getExtraPoints()
+    public function getExtraPoints(): ?float
     {
         return $this->extra_points;
     }
 
     /**
-     * @param mixed $extra_points
+     * @param float|null $extra_points
      */
-    public function setExtraPoints($extra_points): void
+    public function setExtraPoints(?float $extra_points): void
     {
         $this->extra_points = $extra_points;
     }
 
     /**
-     * @return mixed
+     * @return float|null
      */
-    public function getTotalPoints()
+    public function getTotalPoints(): ?float
     {
         return $this->total_points;
     }
 
     /**
-     * @param mixed $total_points
+     * @param float|null $total_points
      */
-    public function setTotalPoints($total_points): void
+    public function setTotalPoints(?float $total_points): void
     {
         $this->total_points = $total_points;
     }
