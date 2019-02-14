@@ -3,10 +3,10 @@
 namespace App\Domain\Model\Ranking;
 
 /**
- * Class ChampionshipInfo
+ * Class Championship
  * @package App\Domain\Ranking\Model
  */
-final class ChampionshipInfo implements \JsonSerializable
+final class Championship implements \JsonSerializable
 {
     /**
      * @var int
@@ -29,7 +29,7 @@ final class ChampionshipInfo implements \JsonSerializable
     private $completed;
 
     /**
-     * ChampionshipInfo constructor.
+     * Championship constructor.
      * @param int $id
      * @param string $name
      * @param string $slug
