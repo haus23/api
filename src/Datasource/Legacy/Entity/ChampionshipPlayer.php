@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity;
+namespace App\Datasource\Legacy\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -18,13 +18,13 @@ class ChampionshipPlayer
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Championship")
+     * @ORM\ManyToOne(targetEntity="App\Datasource\Legacy\Entity\Championship")
      * @ORM\JoinColumn(nullable=false, name="turnier_id")
      */
     private $championship;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Player")
+     * @ORM\ManyToOne(targetEntity="App\Datasource\Legacy\Entity\Player")
      * @ORM\JoinColumn(nullable=false, name="user_id")
      */
     private $player;

@@ -2,9 +2,9 @@
 
 namespace App\Datasource\Legacy\Handler\Ranking;
 
+use App\Datasource\Legacy\Entity\ChampionshipPlayer;
 use App\Domain\Message\Ranking\GetPlayersByChampionship;
 use App\Domain\Model\Ranking\Player;
-use App\Entity\ChampionshipPlayer;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
@@ -26,7 +26,7 @@ class GetPlayersByChampionshipHandler implements MessageHandlerInterface
 
     public function __invoke(GetPlayersByChampionship $msg)
     {
-        $query = $this->em->createQuery('SELECT cp, p FROM App\Entity\ChampionshipPlayer cp
+        $query = $this->em->createQuery('SELECT cp, p FROM Legacy:ChampionshipPlayer cp
             JOIN cp.player p 
             JOIN cp.championship c WHERE c.id = ?1
             ORDER BY cp.rank');
