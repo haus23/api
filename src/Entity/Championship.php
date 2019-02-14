@@ -28,12 +28,12 @@ class Championship
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=6, nullable=true)
+     * @ORM\Column(type="string", length=6)
      */
     private $slug;
 
     /**
-     * @ORM\Column(type="boolean", nullable=true)
+     * @ORM\Column(type="boolean")
      */
     private $completed;
 
@@ -54,7 +54,7 @@ class Championship
         return $this;
     }
 
-    public function getName(): ?string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -66,24 +66,24 @@ class Championship
         return $this;
     }
 
-    public function getSlug(): ?string
+    public function getSlug(): string
     {
         return $this->slug ?? $this->slugifyName();
     }
 
-    public function setSlug(?string $slug): self
+    public function setSlug(string $slug): self
     {
         $this->slug = $slug;
 
         return $this;
     }
 
-    public function getCompleted(): ?bool
+    public function getCompleted(): bool
     {
         return $this->completed ?? false;
     }
 
-    public function setCompleted(?bool $completed): self
+    public function setCompleted(bool $completed): self
     {
         $this->completed = $completed;
 
