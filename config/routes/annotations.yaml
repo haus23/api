@@ -1,3 +1,8 @@
 controllers:
     resource: ../../src/Controller/
     type: annotation
+
+legacy_ontrollers:
+    resource: ../../src/Controller/Legacy
+    type: annotation
+    prefix: 'v1'

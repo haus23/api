@@ -26,7 +26,7 @@ class CommonRankingControllerTest extends WebTestCase
     public function resourceUrls() {
 
         return [
-            ['/ranking/championships']
+            ['/v1/ranking/championships']
         ];
     }
 }

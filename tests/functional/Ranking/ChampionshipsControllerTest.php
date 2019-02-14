@@ -9,7 +9,7 @@ class ChampionshipsControllerTest extends WebTestCase
     public function testGettingChampionships()
     {
         $client = static::createClient();
-        $client->request('GET', '/ranking/championships');
+        $client->request('GET', '/v1/ranking/championships');
 
         $championships = json_decode($client->getResponse()->getContent());
 
@@ -20,7 +20,7 @@ class ChampionshipsControllerTest extends WebTestCase
     public function testChampionshipProperties()
     {
         $client = static::createClient();
-        $client->request('GET', '/ranking/championships');
+        $client->request('GET', '/v1/ranking/championships');
 
         $championship = json_decode($client->getResponse()->getContent())[1];
 

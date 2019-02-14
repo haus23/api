@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Ranking;
+namespace App\Controller\Legacy\Ranking;
 
 use App\Domain\Message\QueryBus;
 use App\Domain\Message\Ranking\GetMatchesByChampionship;
