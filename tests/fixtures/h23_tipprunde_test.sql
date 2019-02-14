@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 14, 2019 at 12:22 PM
--- Server version: 10.3.12-MariaDB
--- PHP Version: 7.3.2
+-- Erstellungszeit: 14. Feb 2019 um 22:28
+-- Server-Version: 10.3.12-MariaDB
+-- PHP-Version: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `h23_tipprunde_test`
+-- Datenbank: `h23_tipprunde_test`
 --
 CREATE DATABASE IF NOT EXISTS `h23_tipprunde_test` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE `h23_tipprunde_test`;
@@ -27,7 +27,7 @@ USE `h23_tipprunde_test`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `runde`
+-- Tabellenstruktur für Tabelle `runde`
 --
 
 DROP TABLE IF EXISTS `runde`;
@@ -35,14 +35,22 @@ CREATE TABLE `runde` (
   `id` int(11) NOT NULL,
   `turnier_id` int(11) NOT NULL,
   `nr` tinyint(4) NOT NULL,
-  `anzahl_spiele` tinyint(4) DEFAULT NULL,
+  `anzahl_spiele` tinyint(4) NOT NULL DEFAULT 0,
   `completed` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Daten für Tabelle `runde`
+--
+
+INSERT INTO `runde` (`id`, `turnier_id`, `nr`, `anzahl_spiele`, `completed`) VALUES
+(1, 1, 1, 5, 0),
+(2, 1, 2, 6, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `spiel`
+-- Tabellenstruktur für Tabelle `spiel`
 --
 
 DROP TABLE IF EXISTS `spiel`;
@@ -63,7 +71,7 @@ CREATE TABLE `spiel` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `spieler`
+-- Tabellenstruktur für Tabelle `spieler`
 --
 
 DROP TABLE IF EXISTS `spieler`;
@@ -79,7 +87,7 @@ CREATE TABLE `spieler` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `spieler`
+-- Daten für Tabelle `spieler`
 --
 
 INSERT INTO `spieler` (`id`, `turnier_id`, `nr`, `user_id`, `punkte`, `zusatz`, `gesamt`, `platz`) VALUES
@@ -97,7 +105,7 @@ INSERT INTO `spieler` (`id`, `turnier_id`, `nr`, `user_id`, `punkte`, `zusatz`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tipp`
+-- Tabellenstruktur für Tabelle `tipp`
 --
 
 DROP TABLE IF EXISTS `tipp`;
@@ -116,7 +124,7 @@ CREATE TABLE `tipp` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `turnier`
+-- Tabellenstruktur für Tabelle `turnier`
 --
 
 DROP TABLE IF EXISTS `turnier`;
@@ -129,7 +137,7 @@ CREATE TABLE `turnier` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `turnier`
+-- Daten für Tabelle `turnier`
 --
 
 INSERT INTO `turnier` (`id`, `title`, `slug`, `order`, `completed`) VALUES
@@ -139,7 +147,7 @@ INSERT INTO `turnier` (`id`, `title`, `slug`, `order`, `completed`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Tabellenstruktur für Tabelle `user`
 --
 
 DROP TABLE IF EXISTS `user`;
@@ -149,7 +157,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `user`
+-- Daten für Tabelle `user`
 --
 
 INSERT INTO `user` (`id`, `name`) VALUES
@@ -165,81 +173,81 @@ INSERT INTO `user` (`id`, `name`) VALUES
 (10, 'Micha A');
 
 --
--- Indexes for dumped tables
+-- Indizes der exportierten Tabellen
 --
 
 --
--- Indexes for table `runde`
+-- Indizes für die Tabelle `runde`
 --
 ALTER TABLE `runde`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `spiel`
+-- Indizes für die Tabelle `spiel`
 --
 ALTER TABLE `spiel`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `spieler`
+-- Indizes für die Tabelle `spieler`
 --
 ALTER TABLE `spieler`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tipp`
+-- Indizes für die Tabelle `tipp`
 --
 ALTER TABLE `tipp`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `turnier`
+-- Indizes für die Tabelle `turnier`
 --
 ALTER TABLE `turnier`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user`
+-- Indizes für die Tabelle `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT für exportierte Tabellen
 --
 
 --
--- AUTO_INCREMENT for table `runde`
+-- AUTO_INCREMENT für Tabelle `runde`
 --
 ALTER TABLE `runde`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `spiel`
+-- AUTO_INCREMENT für Tabelle `spiel`
 --
 ALTER TABLE `spiel`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `spieler`
+-- AUTO_INCREMENT für Tabelle `spieler`
 --
 ALTER TABLE `spieler`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `tipp`
+-- AUTO_INCREMENT für Tabelle `tipp`
 --
 ALTER TABLE `tipp`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `turnier`
+-- AUTO_INCREMENT für Tabelle `turnier`
 --
 ALTER TABLE `turnier`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT für Tabelle `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;

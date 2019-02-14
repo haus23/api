@@ -29,7 +29,7 @@ class Round
     private $nr;
 
     /**
-     * @ORM\Column(type="integer", nullable=true, name="anzahl_spiele")
+     * @ORM\Column(type="integer", name="anzahl_spiele")
      */
     private $matchCount;
 
@@ -38,21 +38,21 @@ class Round
         return $this->id;
     }
 
-    public function getNr(): ?int
-    {
-        return $this->nr;
-    }
-
-    public function getChampionship(): ?Championship
+   public function getChampionship(): Championship
     {
         return $this->championship;
     }
 
-    public function setChampionship(?Championship $championship): self
+    public function setChampionship(Championship $championship): self
     {
         $this->championship = $championship;
 
         return $this;
+    }
+
+    public function getNr(): int
+    {
+        return $this->nr;
     }
 
     public function setNr(int $nr): self
@@ -62,12 +62,12 @@ class Round
         return $this;
     }
 
-    public function getMatchCount(): ?int
+    public function getMatchCount(): int
     {
         return $this->matchCount;
     }
 
-    public function setMatchCount(?int $matchCount): self
+    public function setMatchCount(int $matchCount): self
     {
         $this->matchCount = $matchCount;
 

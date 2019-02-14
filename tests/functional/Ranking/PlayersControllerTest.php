@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class PlayersControllerTest extends WebTestCase
 {
-    public function testGettingChampionships()
+    public function testGettingPlayers()
     {
         $client = static::createClient();
         $client->request('GET', '/v1/ranking/players/1');
@@ -17,7 +17,7 @@ class PlayersControllerTest extends WebTestCase
         $this->assertCount(10, $players);
     }
 
-    public function testChampionshipProperties()
+    public function testPlayerProperties()
     {
         $client = static::createClient();
         $client->request('GET', '/v1/ranking/players/1');
