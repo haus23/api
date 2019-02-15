@@ -6,7 +6,7 @@ namespace App\Domain\Model\Ranking;
  * Class Round
  * @package App\Domain\Model\Ranking
  */
-class Round implements \JsonSerializable
+final class Round implements \JsonSerializable
 {
     /**
      * @var int

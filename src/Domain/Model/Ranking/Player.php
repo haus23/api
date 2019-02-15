@@ -6,7 +6,7 @@ namespace App\Domain\Model\Ranking;
  * Class Player
  * @package App\Domain\Model\Ranking
  */
-class Player implements \JsonSerializable
+final class Player implements \JsonSerializable
 {
 
     /**

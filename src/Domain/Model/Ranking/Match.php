@@ -6,7 +6,7 @@ namespace App\Domain\Model\Ranking;
  * Class Match
  * @package App\Domain\Model\Ranking
  */
-class Match
+final class Match
 {
     /**
      * @var int

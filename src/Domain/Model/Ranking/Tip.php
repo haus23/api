@@ -6,7 +6,7 @@ namespace App\Domain\Model\Ranking;
  * Class Tip
  * @package App\Domain\Model\Ranking
  */
-class Tip
+final class Tip
 {
     /**
      * @var int
