@@ -33,5 +33,12 @@ class CorsSubscriber implements EventSubscriberInterface
 
     public function onKernelResponse(FilterResponseEvent $event)
     {
+        if (!$event->isMasterRequest()) {
+            return;
+        }
+
+        $response = $event->getResponse();
+        $response->headers->set('Access-Control-Allow-Origin', '*');
+        $response->headers->set('Access-Control-Allow-Methods', 'GET');
     }
 }

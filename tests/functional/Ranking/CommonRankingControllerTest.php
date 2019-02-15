@@ -20,6 +20,10 @@ class CommonRankingControllerTest extends WebTestCase
         $this->assertSame(200, $response->getStatusCode());
         $this->assertEquals('application/json', $response->headers->get('Content-Type'));
         $this->assertJson($response->getContent());
+
+        // Check for CORS headers
+        $this->assertTrue($response->headers->has('Access-Control-Allow-Origin'));
+        $this->assertEquals('GET', $response->headers->get('Access-Control-Allow-Methods'));
     }
 
     /**
@@ -35,6 +39,10 @@ class CommonRankingControllerTest extends WebTestCase
 
         $this->assertSame(200, $response->getStatusCode());
         $this->assertEmpty($response->getContent());
+
+        // Check for CORS headers
+        $this->assertTrue($response->headers->has('Access-Control-Allow-Origin'));
+        $this->assertEquals('GET', $response->headers->get('Access-Control-Allow-Methods'));
     }
 
 
