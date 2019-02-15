@@ -5,4 +5,5 @@ controllers:
 legacy_ontrollers:
     resource: ../../src/Controller/Legacy
     type: annotation
+    methods: 'GET'
     prefix: 'v1'
