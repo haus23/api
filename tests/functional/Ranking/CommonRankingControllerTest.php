@@ -22,6 +22,21 @@ class CommonRankingControllerTest extends WebTestCase
         $this->assertJson($response->getContent());
     }
 
+    /**
+     * @dataProvider resourceUrls
+     * @param string $url
+     */
+    public function testSuccessfulOptionsRequests(string $url)
+    {
+        $client = static::createClient();
+        $client->request('OPTIONS', $url);
+
+        $response = $client->getResponse();
+
+        $this->assertSame(200, $response->getStatusCode());
+        $this->assertEmpty($response->getContent());
+    }
+
 
     public function resourceUrls() {
 
