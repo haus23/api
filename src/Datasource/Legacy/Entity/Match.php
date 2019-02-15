@@ -30,7 +30,7 @@ class Match
     private $round;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="integer")
      */
     private $nr;
 
@@ -50,12 +50,12 @@ class Match
     private $fixture;
 
     /**
-     * @ORM\Column(type="boolean", nullable=true, name="topspiel")
+     * @ORM\Column(type="boolean", name="topspiel")
      */
     private $topMatch;
 
     /**
-     * @ORM\Column(type="boolean", nullable=true)
+     * @ORM\Column(type="boolean")
      */
     private $canceled;
 
@@ -74,36 +74,36 @@ class Match
         return $this->id;
     }
 
-    public function getChampionship(): ?Championship
+    public function getChampionship(): Championship
     {
         return $this->championship;
     }
 
-    public function setChampionship(?Championship $championship): self
+    public function setChampionship(Championship $championship): self
     {
         $this->championship = $championship;
 
         return $this;
     }
 
-    public function getRound(): ?Round
+    public function getRound(): Round
     {
         return $this->round;
     }
 
-    public function setRound(?Round $round): self
+    public function setRound(Round $round): self
     {
         $this->round = $round;
 
         return $this;
     }
 
-    public function getNr(): ?int
+    public function getNr(): int
     {
         return $this->nr;
     }
 
-    public function setNr(?int $nr): self
+    public function setNr(int $nr): self
     {
         $this->nr = $nr;
 
@@ -146,24 +146,24 @@ class Match
         return $this;
     }
 
-    public function getTopMatch(): ?bool
+    public function getTopMatch(): bool
     {
         return $this->topMatch;
     }
 
-    public function setTopMatch(?bool $topMatch): self
+    public function setTopMatch(bool $topMatch): self
     {
         $this->topMatch = $topMatch;
 
         return $this;
     }
 
-    public function getCanceled(): ?bool
+    public function getCanceled(): bool
     {
         return $this->canceled;
     }
 
-    public function setCanceled(?bool $canceled): self
+    public function setCanceled(bool $canceled): self
     {
         $this->canceled = $canceled;
 

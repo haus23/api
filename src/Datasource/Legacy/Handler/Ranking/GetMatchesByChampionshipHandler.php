@@ -39,8 +39,8 @@ class GetMatchesByChampionshipHandler implements MessageHandlerInterface
 
         $matches = array_map( function (MatchEntity $m) {
             return new Match($m->getId(), $m->getRound()->getId(), $m->getNr(), $m->getLeague(),
-                $m->getMatchDay()->format('c'), $m->getFixture(), $m->getTopMatch(), $m->getCanceled(),
-                $m->getResult(), $m->getPoints()
+                $m->getMatchDay() != null ? $m->getMatchDay()->format('Y-m-d') : null,
+                $m->getFixture(), $m->getTopMatch(), $m->getCanceled(), $m->getResult(), $m->getPoints()
             );
         }, $rows);
 

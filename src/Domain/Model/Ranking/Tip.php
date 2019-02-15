@@ -24,22 +24,22 @@ class Tip
     public $playerId;
 
     /**
-     * @var string
+     * @var string|null
      */
     public $result;
 
     /**
-     * @var boolean
+     * @var boolean|null
      */
     public $joker;
 
     /**
-     * @var int
+     * @var int|null
      */
     public $tipPoints;
 
     /**
-     * @var int
+     * @var int|null
      */
     public $extraPoints;
 
@@ -53,13 +53,13 @@ class Tip
      * @param int $id
      * @param int $matchId
      * @param int $playerId
-     * @param string $result
-     * @param bool $joker
-     * @param int $tipPoints
-     * @param int $extraPoints
+     * @param string|null $result
+     * @param bool|null $joker
+     * @param int|null $tipPoints
+     * @param int|null $extraPoints
      * @param int|null $points
      */
-    public function __construct(int $id, int $matchId, int $playerId, string $result, bool $joker, int $tipPoints, int $extraPoints, ?int $points)
+    public function __construct(int $id, int $matchId, int $playerId, ?string $result, ?bool $joker, ?int $tipPoints, ?int $extraPoints, ?int $points)
     {
         $this->id = $id;
         $this->matchId = $matchId;

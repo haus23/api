@@ -3,10 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Erstellungszeit: 14. Feb 2019 um 22:28
+-- Erstellungszeit: 15. Feb 2019 um 10:44
 -- Server-Version: 10.3.12-MariaDB
--- PHP-Version: 7.3.1
+-- PHP-Version: 7.3.2
 
+SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
@@ -62,11 +63,20 @@ CREATE TABLE `spiel` (
   `liga` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `datum` date DEFAULT NULL,
   `paarung` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `topspiel` tinyint(1) DEFAULT NULL,
+  `topspiel` tinyint(1) NOT NULL DEFAULT 0,
   `ergebnis` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `punkte` smallint(6) DEFAULT NULL,
   `canceled` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Daten für Tabelle `spiel`
+--
+
+INSERT INTO `spiel` (`id`, `turnier_id`, `runde_id`, `nr`, `liga`, `datum`, `paarung`, `topspiel`, `ergebnis`, `punkte`, `canceled`) VALUES
+(1, 1, 1, 1, 'BL', '2002-08-10', 'Energie-Leverkusen', 0, '1:1', 4, 0),
+(2, 1, 1, 2, 'Bochum-Energie', '2002-08-17', 'Bochum-Energie', 0, NULL, NULL, 0),
+(3, 1, 1, 3, NULL, NULL, NULL, 0, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -120,6 +130,14 @@ CREATE TABLE `tipp` (
   `punkte` smallint(6) DEFAULT NULL,
   `sonder` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Daten für Tabelle `tipp`
+--
+
+INSERT INTO `tipp` (`id`, `turnier_id`, `spieler_id`, `spiel_id`, `tipp`, `joker`, `zusatzjoker`, `punkte`, `sonder`) VALUES
+(1, 1, 1, 1, '2:2', 0, NULL, 1, NULL),
+(2, 1, 1, 2, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -226,7 +244,7 @@ ALTER TABLE `runde`
 -- AUTO_INCREMENT für Tabelle `spiel`
 --
 ALTER TABLE `spiel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT für Tabelle `spieler`
@@ -238,7 +256,7 @@ ALTER TABLE `spieler`
 -- AUTO_INCREMENT für Tabelle `tipp`
 --
 ALTER TABLE `tipp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT für Tabelle `turnier`
@@ -251,6 +269,7 @@ ALTER TABLE `turnier`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

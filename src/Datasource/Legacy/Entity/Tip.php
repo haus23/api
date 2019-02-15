@@ -60,36 +60,36 @@ class Tip
         return $this->id;
     }
 
-    public function getChampionship(): ?Championship
+    public function getChampionship(): Championship
     {
         return $this->championship;
     }
 
-    public function setChampionship(?Championship $championship): self
+    public function setChampionship(Championship $championship): self
     {
         $this->championship = $championship;
 
         return $this;
     }
 
-    public function getFixture(): ?Match
+    public function getFixture(): Match
     {
         return $this->fixture;
     }
 
-    public function setFixture(?Match $fixture): self
+    public function setFixture(Match $fixture): self
     {
         $this->fixture = $fixture;
 
         return $this;
     }
 
-    public function getPlayer(): ?ChampionshipPlayer
+    public function getPlayer(): ChampionshipPlayer
     {
         return $this->player;
     }
 
-    public function setPlayer(?ChampionshipPlayer $player): self
+    public function setPlayer(ChampionshipPlayer $player): self
     {
         $this->player = $player;
 
