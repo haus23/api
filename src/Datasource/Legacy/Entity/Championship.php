@@ -5,7 +5,7 @@ namespace App\Datasource\Legacy\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ChampionshipRepository")
+ * @ORM\Entity()
  * @ORM\Table("turnier")
  */
 class Championship
